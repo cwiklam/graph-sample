@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ruby Graph Sample</title>
+    <title>web_krasnale</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,7 +26,6 @@
     <header>
       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
         <div class="container">
-          <%= link_to "Ruby Graph Tutorial", root_path, class: "navbar-brand" %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,14 +39,12 @@
                 <li class="nav-item" data-turbolinks="false">
                   <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
                 </li>
+                <li class="nav-item" data-turbolinks="false">
+                  <%= link_to "Disk", "/disk", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
+                </li>
               <% end %>
             </ul>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link external-link" href="https://learn.microsoft.com/graph/overview" target="_blank">
-                  <i class="ms-Icon ms-Icon--NavigateExternalInline me-1"></i>Docs
-                </a>
-              </li>
               <% if @user_name %>
                 <li class="nav-item dropdown">
                   <a class="nav-link avatar-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

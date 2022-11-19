@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
 # frozen_string_literal: true
 
 require 'httparty'
@@ -29,6 +27,13 @@ module GraphHelper
     else
       raise "HTTP method #{method.upcase} not implemented"
     end
+  end
+
+  def get_disk_view(token)
+    # 'b!4RLrdQRYMESPvzn0DdDqqAqGVRfGWQ5DphR78v4tUrJUN3JKcWcZR5ZgBRL_7WsY/items/01VRBOIKN6Y2GOVW7725BZO354PWSELRRZ'
+    url = '/v1.0/me/drives'
+    response = make_api_call 'GET', url, token
+    binding.pry
   end
 
   def get_calendar_view(token, start_datetime, end_datetime, timezone)

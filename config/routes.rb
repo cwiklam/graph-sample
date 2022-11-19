@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
@@ -9,6 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'auth/signout'
   get 'calendar', to: 'calendar#index'
+  get 'disk', to: 'disk#index'
   post 'calendar/new', to: 'calendar#create'
   # Add route for OmniAuth callback
   match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]
