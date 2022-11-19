@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'auth/signout'
   get 'calendar', to: 'calendar#index'
   get 'disk', to: 'disk#index'
+  get 'disk/new', to: 'disk#new'
+  post 'disk/new', to: 'disk#create'
   post 'calendar/new', to: 'calendar#create'
   # Add route for OmniAuth callback
   match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]

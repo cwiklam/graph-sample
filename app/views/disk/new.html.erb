@@ -1,0 +1,6 @@
+Dodawanie nowego pliku
+
+<%= form_with do |form| %>
+  <%= form.file_field :picture %>
+  <%= form.submit 'Zapisz', class: "btn btn-success" %>
+<% end %>

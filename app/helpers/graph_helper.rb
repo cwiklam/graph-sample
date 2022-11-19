@@ -24,6 +24,12 @@ module GraphHelper
                     headers: headervals,
                     query: params,
                     body: payload ? payload.to_json : nil
+    when 'PUT'
+      headervals['Content-Type'] = 'application/json'
+      HTTParty.put "#{GRAPH_HOST}#{endpoint}",
+                    headers: headervals,
+                    query: params,
+                    body: payload ? payload.to_json : nil
     else
       raise "HTTP method #{method.upcase} not implemented"
     end
@@ -31,9 +37,13 @@ module GraphHelper
 
   def get_disk_view(token)
     # 'b!4RLrdQRYMESPvzn0DdDqqAqGVRfGWQ5DphR78v4tUrJUN3JKcWcZR5ZgBRL_7WsY/items/01VRBOIKN6Y2GOVW7725BZO354PWSELRRZ'
-    url = '/v1.0/me/drives'
-    response = make_api_call 'GET', url, token
-    binding.pry
+    url = '/v1.0/me/drives/b!4RLrdQRYMESPvzn0DdDqqAqGVRfGWQ5DphR78v4tUrJUN3JKcWcZR5ZgBRL_7WsY/items/01VRBOIKPBEO3H4OPHT5FL5EGYOJUGVA57/children'
+    make_api_call 'GET', url, token
+  end
+
+  def upload_file(token, file)
+    url = '/v1.0/drives/b!4RLrdQRYMESPvzn0DdDqqAqGVRfGWQ5DphR78v4tUrJUN3JKcWcZR5ZgBRL_7WsY/items/01VRBOIKPBEO3H4OPHT5FL5EGYOJUGVA57:/file_icon.png:/content'
+    make_api_call 'PUT', url, token
   end
 
   def get_calendar_view(token, start_datetime, end_datetime, timezone)
