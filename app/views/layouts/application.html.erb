@@ -37,9 +37,6 @@
           </li>
           <% if @user_name %>
             <li class="nav-item" data-turbolinks="false">
-              <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
-            </li>
-            <li class="nav-item" data-turbolinks="false">
               <%= link_to "Disk", "/disk", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
             </li>
           <% end %>
