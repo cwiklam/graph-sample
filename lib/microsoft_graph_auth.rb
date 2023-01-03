@@ -9,7 +9,7 @@ module OmniAuth
     class MicrosoftGraphAuth < OmniAuth::Strategies::OAuth2
       option :name, :microsoft_graph_auth
 
-      DEFAULT_SCOPE = 'openid email profile User.Read'
+      DEFAULT_SCOPE = 'openid email profile User.Read Chat.ReadWrite'
 
       # Configure the Microsoft identity platform endpoints
       option :client_options,
